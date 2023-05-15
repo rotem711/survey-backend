@@ -7,8 +7,7 @@ import { factories } from "@strapi/strapi";
 export default factories.createCoreController(
   "api::question.question",
   ({ strapi }) => ({
-    // Method 1: Creating an entirely custom action
-    async exampleAction(ctx) {
+    async checkAnswer(ctx) {
       try {
         ctx.body = "ok";
       } catch (err) {
