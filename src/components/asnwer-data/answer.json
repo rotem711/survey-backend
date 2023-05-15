@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_asnwer_data_answers",
+  "info": {
+    "displayName": "option",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "richtext"
+    },
+    "isCorrect": {
+      "type": "boolean"
+    }
+  }
+}
