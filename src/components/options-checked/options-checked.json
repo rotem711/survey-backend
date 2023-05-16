@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_options_checked_options_checkeds",
+  "info": {
+    "displayName": "options_checked",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "option_id": {
+      "type": "biginteger"
+    }
+  }
+}

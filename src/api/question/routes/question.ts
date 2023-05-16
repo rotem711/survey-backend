@@ -2,6 +2,12 @@
  * question router
  */
 
-import { factories } from '@strapi/strapi';
-
-export default factories.createCoreRouter('api::question.question');
+export default {
+  routes: [
+    {
+      method: "POST",
+      path: "/questions/new",
+      handler: "question.saveAnswerAndGenerateNewQuestion",
+    },
+  ],
+};

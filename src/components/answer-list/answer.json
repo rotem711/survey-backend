@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_answer_list_answers",
+  "info": {
+    "displayName": "answer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "question_id": {
+      "type": "integer"
+    },
+    "options_checked": {
+      "displayName": "options_checked",
+      "type": "component",
+      "repeatable": true,
+      "component": "options-checked.options-checked"
+    }
+  }
+}
