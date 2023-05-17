@@ -76,7 +76,7 @@ export default factories.createCoreController(
         },
       });
       const question =
-        data.length > 0 ? data[getRandomIntInclusive(0, data.length)] : null;
+        data.length > 0 ? data[getRandomIntInclusive(0, data.length - 1)] : null;
 
       return { data: question };
     },
