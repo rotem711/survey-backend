@@ -8,6 +8,9 @@
   "attributes": {
     "option_id": {
       "type": "biginteger"
+    },
+    "option_text": {
+      "type": "richtext"
     }
   }
 }

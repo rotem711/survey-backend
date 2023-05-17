@@ -8,6 +8,12 @@ export default factories.createCoreController(
   "api::question.question",
   ({ strapi }) => ({
     async saveAnswerAndGenerateNewQuestion(ctx) {
+      const getRandomIntInclusive = (min, max) => {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+      };
+
       // query only answer text
       const requestID = ctx.request.headers["x-request-id"];
       let excludeQuestionIDs = [];
@@ -31,9 +37,8 @@ export default factories.createCoreController(
             // update answer
             const newAnswer = {
               question_id: answerData.id,
-              options_checked: answerData.answers.map((item) => ({
-                option_id: item,
-              })),
+              question: answerData.question_text,
+              options_checked: answerData.answers,
             };
             savedAnswerData.answer.push(newAnswer);
 
@@ -47,17 +52,15 @@ export default factories.createCoreController(
           }
         } else {
           if (answerData.id) {
+            const newAnswer = {
+              question_id: answerData.id,
+              question: answerData.question_text,
+              options_checked: answerData.answers,
+            };
             const response = await strapi.service("api::answer.answer").create({
               data: {
                 user_id: requestID,
-                answer: [
-                  {
-                    question_id: answerData.id,
-                    options_checked: answerData.answers.map((item) => ({
-                      option_id: item,
-                    })),
-                  },
-                ],
+                answer: [newAnswer],
               },
             });
             excludeQuestionIDs.push(answerData.id);
@@ -73,7 +76,8 @@ export default factories.createCoreController(
           },
         },
       });
-      const question = data.length > 0 ? data[0] : null;
+      const question =
+        data.length > 0 ? data[getRandomIntInclusive(0, data.length)] : null;
 
       return { data: question };
     },
