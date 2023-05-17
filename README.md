@@ -1,6 +1,20 @@
-# 🚀 Getting started with Strapi
+# 🚀 Survey backend
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
+This project was built with create-strapi-app. [Learn more](https://www.npmjs.com/package/create-strapi-app)
+
+And this is connected to postgres db.
+
+## How to run the project on local
+
+First, please install postgres on your local. [Learn more](https://www.digitalocean.com/community/tutorials/how-to-set-up-and-install-strapi-for-production-on-ubuntu-22-04)
+
+### `install`
+Install all dependencies.
+```
+npm install
+# or
+yarn install
+```
 
 ### `develop`
 
